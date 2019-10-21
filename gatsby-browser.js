@@ -1,7 +1,12 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from "react"
 
-// You can delete this file if you're not using it
+import FirebaseContext from "./src/utils/FirebaseContext"
+import AuthContextProvider from "./src/components/AuthContextProvider"
+
+import Firebase from "./src/services/firebase"
+
+export const wrapRootElement = ({ element }) => (
+  <FirebaseContext.Provider value={new Firebase()}>
+    <AuthContextProvider>{element}</AuthContextProvider>
+  </FirebaseContext.Provider>
+)

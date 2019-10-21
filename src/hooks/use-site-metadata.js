@@ -7,9 +7,15 @@ export const useSiteMetaData = () => {
         evento(id: { eq: "Su0e3Iy0rXxBObnRYQvD" }) {
           nome
           cor
+          inicio
+          fim
+          image {
+            src
+          }
+          local
         }
       }
     `
   )
-  return site.siteMetadata
+  return site.evento
 }

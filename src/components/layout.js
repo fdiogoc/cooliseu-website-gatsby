@@ -1,44 +1,30 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+
 
 import Header from "./header"
 import "./layout.css"
 
-import { useSiteMetadata } from "../hooks/use-site-metadata"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 
-const Layout = ({ children, eventoId }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      evento(id: { eq: "Su0e3Iy0rXxBObnRYQvD" }) {
-        nome
-        cor
-      }
-    }
-  `)
+import { Container as BaseContainerStyles } from "../styledComponents/layout"
+
+const Container = styled(BaseContainerStyles)`
+  padding-top: 0;
+`
+
+const Layout = ({ children }) => {
+  const { nome, cor } = useSiteMetaData()
 
   return (
     <>
-      <div>{console.log(data)}</div>
-      <Header siteTitle={data.evento.nome} color={data.evento.cor} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
+      <Header siteTitle={nome} color={cor} />
+      <Container>
         <main>{children}</main>
-      </div>
-      <footer style={{ background: `${data.evento.cor}` }}>
+      </Container>
+
+      <footer style={{ background: `${cor}` }}>
         <div
           style={{
             margin: `0 auto`,

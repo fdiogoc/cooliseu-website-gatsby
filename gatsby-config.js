@@ -6,8 +6,8 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    eventoId: "QnviOqDOtBCtmb6fBZ5n",
+    author: `@fdiogoc`,
+    eventoId: "Su0e3Iy0rXxBObnRYQvD",
   },
   plugins: [
     {
@@ -20,14 +20,16 @@ module.exports = {
           {
             type: `Evento`,
             collection: `eventos`,
-            //custom query..
             query: ref => ref.limit(10),
             map: doc => ({
               nome: doc.nome,
               local: doc.local,
-              data: doc.data_inicio.toDate(),
-              created: doc.createdAt.toDate(),
+              inicio:
+                doc.data_inicio == undefined ? "" : doc.data_inicio.toDate(),
+              fim: doc.data_fim == undefined ? "" : doc.data_fim.toDate(),
               cor: doc.cor,
+              image: doc.image,
+              local: doc.local,
             }),
           },
           {
@@ -36,6 +38,7 @@ module.exports = {
             //custom query..
             query: ref => ref.limit(10),
             map: doc => ({
+              id: doc.id,
               nome: doc.nome,
               email: doc.local,
               evento___NODE: doc.eventoId,
@@ -46,6 +49,7 @@ module.exports = {
             collection: `palestras`,
 
             map: doc => ({
+              id: doc.id,
               tema: doc.tema,
               evento___NODE: doc.eventoId,
               palestrante___NODE: doc.palestranteId,
@@ -59,6 +63,7 @@ module.exports = {
             //custom query..
             query: ref => ref.limit(10),
             map: doc => ({
+              id: doc.id,
               evento___NODE: doc.eventoId,
               horarios: doc.horarios,
             }),
@@ -69,6 +74,7 @@ module.exports = {
             //custom query..
             query: ref => ref.limit(10),
             map: doc => ({
+              id: doc.id,
               evento___NODE: doc.eventoId,
               email: doc.email,
               nome: doc.nome,
@@ -79,6 +85,7 @@ module.exports = {
             type: `Agenda`,
             collection: `agendas`,
             map: doc => ({
+              id: doc.id,
               horario: doc.horario,
               evento___NODE: doc.eventoId,
               participante___NODE: doc.participanteId,
