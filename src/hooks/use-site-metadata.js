@@ -7,11 +7,13 @@ export const useSiteMetaData = () => {
         evento(id: { eq: "Su0e3Iy0rXxBObnRYQvD" }) {
           nome
           cor
-          inicio
+          inicio(formatString: "DD/MM")
           fim
+          descricao
           image {
             src
           }
+
           local
         }
       }

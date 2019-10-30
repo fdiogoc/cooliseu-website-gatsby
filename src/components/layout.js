@@ -2,9 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
 
+import "../assets/scss/main.scss"
 
-import Header from "./header"
-import "./layout.css"
+import Header from "./Header"
+import Footer from "./Footer"
 
 import { useSiteMetaData } from "../hooks/use-site-metadata"
 
@@ -20,25 +21,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={nome} color={cor} />
-      <Container>
-        <main>{children}</main>
-      </Container>
-
-      <footer style={{ background: `${cor}` }}>
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            color: `white`,
-            textDecoration: `none`,
-            padding: `1rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </div>
-      </footer>
+      {children}
+      <Footer />
     </>
   )
 }

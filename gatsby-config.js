@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Cooliseu Website`,
+    description: `Kick off your next, great Website`,
     author: `@fdiogoc`,
     eventoId: "Su0e3Iy0rXxBObnRYQvD",
   },
@@ -30,6 +30,7 @@ module.exports = {
               cor: doc.cor,
               image: doc.image,
               local: doc.local,
+              descricao: doc.descricao,
             }),
           },
           {
@@ -40,7 +41,7 @@ module.exports = {
             map: doc => ({
               id: doc.id,
               nome: doc.nome,
-              email: doc.local,
+              email: doc.email,
               evento___NODE: doc.eventoId,
             }),
           },
@@ -51,6 +52,7 @@ module.exports = {
             map: doc => ({
               id: doc.id,
               tema: doc.tema,
+              descricao: doc.descricao,
               evento___NODE: doc.eventoId,
               palestrante___NODE: doc.palestranteId,
               data: doc.data.toDate(),
@@ -121,5 +123,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    "gatsby-plugin-sass",
   ],
 }

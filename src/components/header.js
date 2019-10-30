@@ -1,60 +1,45 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 import styled from "styled-components"
 
-import { Container as BaseContainerStyles } from "../styledComponents/layout"
 
-import GoogleIcon from "./Icons/Google"
-import GoogleButton from "../components/GoogleLoginButton"
-
-const Container = styled(BaseContainerStyles)`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const Section = styled.section`
+  background-image: url(${props => {
+    console.log(props)
+    return props.img_background.src
+  }});
 `
 
-const HeaderContainer = styled.header`
-  ${props => props.background};
-  margin-bottom: 1.45rem;
-`
+const Header = () => {
+  const { nome, inicio, descricao, image, cor } = useSiteMetaData()
 
-const Heading1 = styled.h1`
-  margin: 0;
-`
+  if (image[1] == undefined) {
+    image.push(image[0])
+  }
+  return (
+    <Section id="header" img_background={image[1]}>
+      <div className="inner">
+        <div className="col-12">
+          <div className="col-4">
+            <span className="fitLogo">
+              <img src={image[0].src} alt="" />
+            </span>
+          </div>
 
-const StyledLink = styled(Link)`
-  color: white;
-  text-decoration: none;
-`
+          <h1>{nome}</h1>
 
-const StyledGoogleButton = styled(GoogleButton)`
-  width: 115px;
-`
-
-const BACKGROUND = "background-color: #20232a"
-
-const Header = ({ siteTitle, background }) => (
-  <>
-    <HeaderContainer background={background}>
-      <Container>
-        <Heading1>
-          <StyledLink to="/">{siteTitle}</StyledLink>
-        </Heading1>
-        <StyledGoogleButton></StyledGoogleButton>
-      </Container>
-    </HeaderContainer>
-  </>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-  background: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-  background: BACKGROUND,
+          <div dangerouslySetInnerHTML={{ __html: descricao }} />
+          <ul className="actions">
+            <li>
+              <a href="#one" className="button scrolly">
+                {inicio}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Section>
+  )
 }
 
 export default Header
