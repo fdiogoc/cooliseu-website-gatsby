@@ -2,14 +2,14 @@ import React from "react"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
 
 const Footer = () => {
-  const { nome, inicio, descricao, image, cor } = useSiteMetaData()
+  const { fim } = useSiteMetaData()
 
   return (
     <section id="footer">
       <ul className="actions">
         <li>
           <a href="#one" className="button scrolly">
-            {inicio}
+            {fim}
           </a>
         </li>
       </ul>

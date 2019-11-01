@@ -2,7 +2,6 @@ import React from "react"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
 import styled from "styled-components"
 
-
 const Section = styled.section`
   background-image: url(${props => {
     console.log(props)
@@ -25,10 +24,6 @@ const Header = () => {
               <img src={image[0].src} alt="" />
             </span>
           </div>
-
-          <h1>{nome}</h1>
-
-          <div dangerouslySetInnerHTML={{ __html: descricao }} />
           <ul className="actions">
             <li>
               <a href="#one" className="button scrolly">

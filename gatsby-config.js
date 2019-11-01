@@ -7,7 +7,6 @@ module.exports = {
     title: `Cooliseu Website`,
     description: `Kick off your next, great Website`,
     author: `@fdiogoc`,
-    eventoId: "Su0e3Iy0rXxBObnRYQvD",
   },
   plugins: [
     {
@@ -42,6 +41,8 @@ module.exports = {
               id: doc.id,
               nome: doc.nome,
               email: doc.email,
+              descricao: doc.descricao == undefined ? "" : doc.descricao,
+              image: doc.image == undefined ? [] : doc.image,
               evento___NODE: doc.eventoId,
             }),
           },

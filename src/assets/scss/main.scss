@@ -25,6 +25,11 @@
 	));
 
 /* Basic */
+.dangerouslySetInnerHTML {
+	p {
+		margin: 0;
+	}
+}
 
 body {
 	background: _palette(bg);
@@ -101,7 +106,7 @@ h1 {
 }
 
 h2 {
-	font-size: 2em;
+	font-size: 1.5em;
 	line-height: 1.35em;
 }
 
@@ -229,7 +234,7 @@ header {
 	}
 
 	&.major {
-		margin: 0 0 (_size(element-margin) * 0.5) 0;
+		margin: (_size(element-margin) * 0.5) 0 (_size(element-margin) * 0.5) 0;
 
 		&:after {
 			background: _palette(border);
@@ -551,7 +556,7 @@ input[type="radio"] {
 
 
 		img {
-			width: 100%;
+			max-height: 250px;
 		}
 	}
 

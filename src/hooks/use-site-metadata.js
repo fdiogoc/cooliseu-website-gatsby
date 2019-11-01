@@ -8,7 +8,7 @@ export const useSiteMetaData = () => {
           nome
           cor
           inicio(formatString: "DD/MM")
-          fim
+          fim(formatString: "DD/MM")
           descricao
           image {
             src
