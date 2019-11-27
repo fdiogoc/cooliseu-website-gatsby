@@ -10,6 +10,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-firestore`,
       options: {
         // credential or appConfig

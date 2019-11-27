@@ -11,7 +11,6 @@ export default function Login() {
   const { setAuthUser, authUser } = useContext(AuthContext)
 
   if (authUser !== "") {
-    console.log(authUser)
     return (
       <ul>
         <li>
