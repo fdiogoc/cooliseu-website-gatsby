@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 
 import Layout from '../components/layout';
 import FormAgenda from './formAgenda';
+
+import SelectHookFiresotre from '../components/selectHookFirestore';
+
 import AuthContext from '../utils/AuthContext';
 export default (props) => {
 	const Auth = useContext(AuthContext);
@@ -10,7 +13,7 @@ export default (props) => {
 	if (authUser !== '') {
 		return (
 			<Layout>
-				<FormAgenda {...pageContext} />
+				<SelectHookFiresotre {...props} />
 			</Layout>
 		);
 	} else {
