@@ -4,7 +4,7 @@ export const useSiteMetaData = () => {
 	const site = useStaticQuery(
 		graphql`
 			query SiteMetaData {
-				evento(id: { eq: "Q5aCbUkA02MyuHUtewQq" }) {
+				evento(id: { eq: "Su0e3Iy0rXxBObnRYQvD" }) {
 					nome
 					cor
 					inicio(formatString: "DD/MM")
